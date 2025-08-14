@@ -838,9 +838,8 @@ def get_model_token_limit(model_string):
         Token limit as integer if found, None if model not in lookup table
     """
     # Search through known model token limits
-    for model_key, token_limit in MODEL_TOKEN_LIMITS.items():
-        if model_key in model_string:
-            return token_limit
+    if model_string in MODEL_TOKEN_LIMITS:
+        return MODEL_TOKEN_LIMITS[model_string]
     
     # Model not found in lookup table
     return None
